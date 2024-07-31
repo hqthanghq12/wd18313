@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +61,10 @@ Route::get('/post', function () {
 //Route::post('/products/create', [ProductController::class, 'create'])
 //    ->name('product.create');
 //
+Route::get('register', [UserController::class, 'register'])
+    ->name('register');
+Route::post('register', [UserController::class, 'postRegister'])
+    ->name('postRegister');
 Route::controller(ProductController::class)
     ->name('product.')
     ->prefix('products/')

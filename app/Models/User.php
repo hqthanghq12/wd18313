@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -41,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function insertDataUser($params){
+        $params['role'] = 1;
+        $res = User::query()->create($params);
+        return $res;
+    }
 }

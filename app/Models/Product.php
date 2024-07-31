@@ -57,7 +57,9 @@ class Product extends Model
         return $res;
     }
     public function getDataProductById($id){
-        $query = Product::query()->find($id);
+        $query = Product::query()
+            ->with('loadAllCategory')
+            ->find($id);
         return $query;
     }
     public function updateDataProduc($params, $id){

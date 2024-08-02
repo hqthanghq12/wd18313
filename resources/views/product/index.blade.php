@@ -4,6 +4,10 @@
 @endsection
 @section('content')
     <a href="{{route('product.create')}}" class="btn btn-success">Thêm mới</a>
+    <form action="{{route('logout')}}" method="POST">
+        @csrf
+        <button type="submit">Dang Xuat</button>
+    </form>
     <table class="table">
         <thead>
         <tr>

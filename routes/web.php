@@ -65,9 +65,16 @@ Route::get('register', [UserController::class, 'register'])
     ->name('register');
 Route::post('register', [UserController::class, 'postRegister'])
     ->name('postRegister');
+Route::get('login', [UserController::class, 'login'])
+    ->name('login');
+Route::post('login', [UserController::class, 'postLogin'])
+    ->name('postLogin');
+Route::post('logout', [UserController::class, 'logout'])
+    ->name('logout');
 Route::controller(ProductController::class)
     ->name('product.')
     ->prefix('products/')
+    ->middleware('admin')
     ->group(function (){
         Route::get('/', 'index')
             ->name('index');
